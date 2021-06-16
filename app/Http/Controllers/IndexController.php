@@ -27,7 +27,7 @@ class IndexController extends Controller
 
     public function bukti(Request $request)
     {
-        $antrian_terdaftar = Antrian::select("antrian")->orderBy('tanggal_layanan', 'desc')->orderBy('antrian', 'desc')->first()->antrian;
+        $antrian_terdaftar = Antrian::select("antrian")->orderBy('tanggal_layanan', 'desc')->orderBy('antrian', 'desc')->first();
         $tanggal_terdaftar = new DateTIme(Antrian::max("tanggal_layanan"));
         // dd($tanggal_terdaftar);
         $tanggal_layanan = $this->tanggal_mulai;
@@ -42,8 +42,9 @@ class IndexController extends Controller
             $tanggal_layanan = $tanggal_terdaftar;
             // dd($tanggal_layanan);
         }
-
+        $antrian_terdaftar = !is_null($antrian_terdaftar)?$antrian_terdaftar->antrian:$antrian_terdaftar;
         if($antrian_terdaftar < $this->kuota){
+            
             $antrian_baru->antrian = $antrian_terdaftar + 1;
             $antrian_baru->tanggal_layanan = $tanggal_layanan;
         }else{
