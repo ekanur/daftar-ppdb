@@ -29,7 +29,9 @@ class IndexController extends Controller
     {
         $antrian_terdaftar = Antrian::select("antrian")->orderBy('tanggal_layanan', 'desc')->orderBy('antrian', 'desc')->first();
         $tanggal_terdaftar = new DateTIme(Antrian::max("tanggal_layanan"));
-        // dd($tanggal_terdaftar);
+        if($tanggal_terdaftar == $this->tanggal_akhir && $antrian_terdaftar == $this->kuota){
+                return "[Maaf Kuota Pelayanan Sudah Penuh. Pelayanan PPDB bisa dibantu di sekolah lain. Terimakasih]";
+        }
         $tanggal_layanan = $this->tanggal_mulai;
 
         $antrian_baru = new Antrian;
