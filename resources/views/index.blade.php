@@ -26,10 +26,10 @@
 <body>
 	<div class="image-container set-full-height" style="background-image: url('assets/img/smkn2depok_depan.jpg')">
 	    <!--   Creative Tim Branding   -->
-	    <a href="http://creative-tim.com">
+	    <a href="{{url('/')}}">
 	         <div class="logo-container">
 	            <div class="logo">
-	                <!--<img src="assets/img/new_logo.png"> -->
+	                <img src="assets/img/new_logo.png">
 	            </div>
 	            <div class="brand">
 	                Layanan PPDB

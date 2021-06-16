@@ -16,3 +16,4 @@ use App\Http\Controllers\IndexController;
 
 Route::get('/', [IndexController::class, 'index']);
 Route::post('/bukti', [IndexController::class, 'bukti']);
+Route::post('/download', [IndexController::class, 'download']);

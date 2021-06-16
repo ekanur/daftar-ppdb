@@ -26,10 +26,10 @@
 <body>
 	<div class="image-container set-full-height" style="background-image: url('assets/img/smkn2depok_depan.jpg')">
 	    <!--   Creative Tim Branding   -->
-	    <a href="http://creative-tim.com">
+	    <a href="{{url('/')}}">
 	         <div class="logo-container">
 	            <div class="logo">
-	                <!--<img src="assets/img/new_logo.png"> -->
+	                <img src="assets/img/new_logo.png">
 	            </div>
 	            <div class="brand">
 	                Layanan PPDB
@@ -79,21 +79,22 @@
 		                                        <table class="table table-responsive">
 													<tr>
 														<td>Nama : </td>
-														<td>Nama Lengkap siswa</td>
+														<td>{{ $antrian_baru->nama_lengkap }}</td>
 													</tr>
 													<tr>
 														<td>NISN : </td>
-														<td>345345435</td>
+														<td>{{ $antrian_baru->nisn }}</td>
 													</tr>
 													<tr>
 														<td>No. Antrian : </td>
-														<td>34</td>
+														<td>{{ $antrian_baru->antrian }}</td>
 													</tr>
 													<tr>
 														<td>Tanggal Layanan : </td>
-														<td>23 Juni 2021</td>
+														<td>{{ $antrian_baru->tanggal_layanan->format("Y-m-d") }}</td>
 													</tr>
 												</table>
+												NB. Download Bukti Antrian untuk ditunjukan sebelum mendapatkan pelayanan
 		                                    </div>
 		                                </div>
 		                            </div>
@@ -118,8 +119,13 @@
 	                        	<div class="wizard-footer">
 	                            	<div class="pull-right">
 	                                    <input type='button' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Proses' />
-	                                    <input type='button' class='btn btn-finish btn-fill btn-danger btn-wd' name='finish' value='Download Bukti Antrian' />
-	                                </div>
+	                                    </form>
+										<form action="{{url('download')}}" method="post">
+											@csrf
+											<input type="hidden" name="id" value={{$antrian_baru->id}}>
+											<input type='submit' class='btn btn-finish btn-fill btn-danger btn-wd' value="Download Bukti Antrian"/>
+	                                	</form>
+									</div>
 	                                <div class="pull-left">
 	                                    <!-- <input type='button' class='btn btn-previous btn-fill btn-default btn-wd' name='previous' value='Previous' /> -->
 
@@ -136,7 +142,7 @@
 	                                </div>
 	                                <div class="clearfix"></div>
 	                        	</div>
-		                    </form>
+		                    
 		                </div>
 		            </div> <!-- wizard container -->
 		        </div>

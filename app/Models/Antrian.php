@@ -9,4 +9,6 @@ class Antrian extends Model
 {
     use HasFactory;
     protected $table = "antrian";
+
+    
 }

@@ -18,6 +18,7 @@ class Antrian extends Migration
             $table->string('nisn');
             $table->string('nama_lengkap');
             $table->string('wa');
+            $table->string('jalur');
             $table->integer('antrian');
             $table->date("tanggal_layanan");
             $table->timestamps();
