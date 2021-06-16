@@ -13,7 +13,15 @@ class Antrian extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('antrian', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('nisn');
+            $table->string('nama_lengkap');
+            $table->string('wa');
+            $table->integer('antrian');
+            $table->date("tanggal_layanan");
+            $table->timestamps();
+        });
     }
 
     /**

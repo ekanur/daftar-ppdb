@@ -50,8 +50,7 @@
 		            <!--      Wizard container        -->
 		            <div class="wizard-container">
 		                <div class="card wizard-card" data-color="red" id="wizard">
-		                    <form action="{{  url('bukti') }}" method="post">
-							@csrf
+		                    <form action="" method="">
 		                <!--        You can switch " data-color="blue" "  with one of the next bright colors: "green", "orange", "red", "purple"             -->
 
 		                    	<div class="wizard-header">
@@ -62,100 +61,39 @@
 		                    	</div>
 								<div class="wizard-navigation">
 									<ul>
-			                            <li><a href="#details" data-toggle="tab">Data Diri</a></li>
-			                            <li><a href="{{url('/')}}" data-toggle="tab">Bukti Antrian</a></li>
+			                            <li><a href="{{ url('/') }}" data-toggle="tab">Data Diri</a></li>
+			                            <li class='active'><a href="#captain" data-toggle="tab">Bukti Antrian</a></li>
 			                            <!-- <li><a href="#description" data-toggle="tab">Extra Details</a></li> -->
 			                        </ul>
 								</div>
 
 		                        <div class="tab-content">
 		                            <div class="tab-pane" id="details">
-		                            	<div class="row">
-			                            	<div class="col-sm-12">
-			                                	<h4 class="info-text"> Masukan data diri calon siswa</h4>
-			                            	</div>
-		                                	<div class="col-sm-6">
-												<div class="input-group">
-													<span class="input-group-addon">
-														<i class="material-icons">pin</i>
-													</span>
-													<div class="form-group label-floating">
-			                                          	<label class="control-label">NISN</label>
-			                                          	<input name="nisn" type="number" class="form-control">
-			                                        </div>
-												</div>
-
-												<div class="input-group">
-													<span class="input-group-addon">
-														<i class="material-icons">person</i>
-													</span>
-													<div class="form-group label-floating">
-			                                          	<label class="control-label">Nama Lengkap Siswa</label>
-			                                          	<input name="nama" type="text" class="form-control">
-			                                        </div>
-												</div>
-
-		                                	</div>
-		                                	<div class="col-sm-6">
-												<div class="input-group">
-													<span class="input-group-addon">
-														<i class="material-icons">phone</i>
-													</span>
-													<div class="form-group label-floating">
-														<label class="control-label">No. WA Siswa/Wali</label>
-														<input name="wa" type="text" class="form-control">
-													</div>
-												</div>
-		                                    	<div class="input-group">
-													<span class="input-group-addon">
-														<i class="material-icons">format_list_bulleted</i>
-													</span>
-													<div class="form-group label-floating">
-														<label class="control-label">Jalur Pendaftaran</label>
-														<select name="jalur" class="form-control valid" aria-invalid="false">
-															<option disabled="" selected=""></option>
-															<option value="Afirmasi"> Afirmasi </option>
-															<option value="Zonasi"> Zonasi </option>
-															<option value="Prestasi"> Prestasi </option>
-															
-														</select>
-													</div>
-												</div>
-												
-		                                	</div>
-		                            	</div>
+		                            	
+		                            	
 		                            </div>
-		                            <div class="tab-pane" id="captain">
-		                                <h4 class="info-text">What type of room would you want? </h4>
+		                            <div class="tab-pane active" id="captain">
+		                                <h4 class="info-text">Bukti Antrian </h4>
 		                                <div class="row">
 		                                    <div class="col-sm-10 col-sm-offset-1">
-		                                        <div class="col-sm-4">
-		                                            <div class="choice" data-toggle="wizard-radio" rel="tooltip" title="This is good if you travel alone.">
-		                                                <input type="radio" name="job" value="Design">
-		                                                <div class="icon">
-		                                                    <i class="material-icons">weekend</i>
-		                                                </div>
-		                                                <h6>Single</h6>
-		                                            </div>
-		                                        </div>
-		                                        <div class="col-sm-4">
-		                                            <div class="choice" data-toggle="wizard-radio" rel="tooltip" title="Select this room if you're traveling with your family.">
-		                                                <input type="radio" name="job" value="Code">
-		                                                <div class="icon">
-		                                                    <i class="material-icons">home</i>
-		                                                </div>
-		                                                <h6>Family</h6>
-		                                            </div>
-		                                        </div>
-												<div class="col-sm-4">
-		                                            <div class="choice" data-toggle="wizard-radio" rel="tooltip" title="Select this option if you are coming with your team.">
-		                                                <input type="radio" name="job" value="Code">
-		                                                <div class="icon">
-		                                                    <i class="material-icons">business</i>
-		                                                </div>
-		                                                <h6>Business</h6>
-		                                            </div>
-		                                        </div>
+		                                        <table class="table table-responsive">
+													<tr>
+														<td>Nama : </td>
+														<td>Nama Lengkap siswa</td>
+													</tr>
+													<tr>
+														<td>NISN : </td>
+														<td>345345435</td>
+													</tr>
+													<tr>
+														<td>No. Antrian : </td>
+														<td>34</td>
+													</tr>
+													<tr>
+														<td>Tanggal Layanan : </td>
+														<td>23 Juni 2021</td>
+													</tr>
+												</table>
 		                                    </div>
 		                                </div>
 		                            </div>
@@ -179,7 +117,7 @@
 		                        </div>
 	                        	<div class="wizard-footer">
 	                            	<div class="pull-right">
-	                                    <input type='submit' class='btn btn-fill btn-danger btn-wd' name='next' value='Proses' />
+	                                    <input type='button' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Proses' />
 	                                    <input type='button' class='btn btn-finish btn-fill btn-danger btn-wd' name='finish' value='Download Bukti Antrian' />
 	                                </div>
 	                                <div class="pull-left">
