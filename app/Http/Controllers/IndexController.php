@@ -21,7 +21,11 @@ class IndexController extends Controller
     }
 
     public function index()
-    {
+    {   $antrian_terdaftar = Antrian::select("antrian")->orderBy('tanggal_layanan', 'desc')->orderBy('antrian', 'desc')->first();
+        $tanggal_terdaftar = new DateTIme(Antrian::max("tanggal_layanan"));
+        if($tanggal_terdaftar == $this->tanggal_akhir && $antrian_terdaftar == $this->kuota){
+                return "[Maaf Kuota Pelayanan Sudah Penuh. Pelayanan PPDB bisa dibantu di sekolah lain. Terimakasih]";
+        }
         return view("index");
     }
 
