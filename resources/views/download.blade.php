@@ -56,6 +56,10 @@ table {
         </td>
     </tr>
     <tr>
+        <td>Jalur</td>
+        <td> : <strong>{{ $antrian_baru->jalur }}</strong></td>
+    </tr>
+    <tr>
         <td>Nama</td>
         <td> : {{ $antrian_baru->nama_lengkap }}</td>
     </tr>
@@ -64,16 +68,14 @@ table {
         <td> : {{ $antrian_baru->nisn }}</td>
     </tr>
     <tr>
-        <td>No. Antrian</td>
-        <td> : {{ $antrian_baru->antrian }}</td>
+        <td colspan="2"><br/><br/></td>
     </tr>
     <tr>
-        <td>Tanggal Layanan</td>
-        <td> : {{ $antrian_baru->tanggal_layanan }}</td>
+        <td><strong><u>Tanggal Layanan</u></strong> <h2>{{ date_format(date_create($antrian_baru->tanggal_layanan), 'j F Y') }}</h2></td>
+        <td><strong><u>No. Antrian</u></strong> <h2>{{ $antrian_baru->antrian }}</h2></td>
     </tr>
-
     <tr>
-        <td></td>
+        <td><small><em>Dicetak pada : {{ date("Y-m-d H:i:s") }}</em></small></td>
         <td><br/><br/><strong>TTD</strong><br/>
         <br/><br/>
         <u>Panitia PPDB SMKN 2 Depok</u>
